@@ -38,7 +38,7 @@ router.post("/signup",async (req,res)=>{
         lastName:req.body.lastName
     })
     const userId = user._id;
-
+ 
     const token = jwt.sign({
         userId
     },JWT_SECRET);
