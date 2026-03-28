@@ -1,3 +1,5 @@
+require("dotenv").config();
+
 const express = require("express");
 const app = express();
 const cors = require("cors");
@@ -19,6 +21,7 @@ app.use("/api/v1",mainRouter);
 // app.use(router1);
 
 app.listen(3000,function(err){
+    console.log(`Listening on : localhost:3000`);
     if (err){
         console.log(err);
     }

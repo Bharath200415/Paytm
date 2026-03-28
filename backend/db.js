@@ -1,7 +1,13 @@
 require('dotenv').config()
 const mongoose = require('mongoose');
 
-mongoose.connect(process.env.MONGO_URI);
+try{
+    mongoose.connect(process.env.MONGO_URI);
+    console.log("connected successfully!");
+}catch(e){
+    console.log(e);
+}
+
 
 //Simple way: 
 
@@ -43,7 +49,7 @@ const userSchema = new mongoose.Schema({
 
 });
 
-const accountSchema = new Mongoose.Schema({
+const accountSchema = new mongoose.Schema({
     userId:{
         type:mongoose.Schema.Types.ObjectId,
         ref:'User',
