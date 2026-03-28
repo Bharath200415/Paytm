@@ -1,8 +1,6 @@
 const express = require("express");
 const zod = require("zod");
 const { Account } = require("../db");
-const JWT_SECRET = require("../config");
-const jwt = require("jsonwebtoken");
 const { authMiddleWare } = require("../middleware");
 const {mongoose} = require("mongoose");
 
