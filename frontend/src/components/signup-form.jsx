@@ -16,6 +16,7 @@ export const SignupForm = ({
   className,
   ...props
 }) => {
+  const BASE_URL = import.meta.env.VITE_API_URL;
   const navigate = useNavigate();
   const [firstName,setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -90,7 +91,7 @@ export const SignupForm = ({
 
             e.preventDefault();
             try{
-              const response = await axios.post("http://localhost:3000/api/v1/user/signup",{
+              const response = await axios.post(`${BASE_URL}/api/v1/user/signup`,{
                 username,
                 firstName,
                 lastName,

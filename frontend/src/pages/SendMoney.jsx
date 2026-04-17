@@ -10,6 +10,7 @@ export const SendMoney = () => {
     const id = searchParams.get("id");
     const name = searchParams.get("name");
     const [amount, setAmount] = useState(0);
+    const BASE_URL = import.meta.env.VITE_API_URL;
 
     const [success,setSuccess] = useState(false);
     const [error,setError] = useState("");
@@ -50,7 +51,7 @@ export const SendMoney = () => {
                     <button onClick={() => {
 
                       try{
-                        axios.post("http://localhost:3000/api/v1/account/transfer", {
+                        axios.post(`${BASE_URL}/api/v1/account/transfer`, {
                                 to: id,
                                 amount
                             }, {

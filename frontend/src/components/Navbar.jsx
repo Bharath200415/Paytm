@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from 'react'
 import axios from "axios";
 
-export const Appbar = () => {
+export const Navbar = () => {
         const [val,setVal] = useState("");
+        const BASE_URL = import.meta.env.VITE_API_URL;
 
     useEffect(()=>{
         async function getUser(){
             try{
                 const token = localStorage.getItem("paytmToken");
-                const response = await axios.get("http://localhost:3000/api/v1/account/balance",{
+                const response = await axios.get(`${BASE_URL}/api/v1/account/balance`,{
                     headers:{
                         Authorization:`Bearer ${token}`
                     }

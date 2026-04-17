@@ -3,13 +3,15 @@ import { Button } from "./Button";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
+
 export const Users = ()=>{
+    const BASE_URL = import.meta.env.VITE_API_URL;
 
     const [users,setUsers] = useState([]);
     const [filter,setFilter]= useState("");
 
     useEffect(()=>{
-        axios.get("http://localhost:3000/api/v1/user/bulk?filter="+filter)
+        axios.get(`${BASE_URL}/api/v1/user/bulk?filter=${filter}`)
         .then(response=>{
             setUsers(response.data.user)
         },[filter])
